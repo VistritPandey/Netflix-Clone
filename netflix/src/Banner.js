@@ -1,5 +1,5 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import requests from "./Requests";
 
 function Banner() {
@@ -7,15 +7,28 @@ function Banner() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests);
+      const request = await Axios.get(requests.fetchNetflixOriginals);
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
     }
     fetchData();
   }, []);
 
   return (
-    <header>
-      {/*title*/}
-      {/*div > 2 butttons*/}
+    <header
+      className="banner"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
+        backgroundPosition: "center center",
+      }}
+    >
+      <div className="banner__content">
+        <h1></h1>
+      </div>
     </header>
   );
 }
