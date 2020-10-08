@@ -1,4 +1,6 @@
 const API_KEY = "7ccbb13edbf7b771e919a3ee0ec36948"
+
+
 const requests = {
     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
     fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
