@@ -2,15 +2,16 @@ import React from "react";
 import "./App.css";
 import Row from "./Row";
 import requests from "./Requests";
+import Banner from "./Banner";
 
 function App() {
   return (
     <div className="App">
-      <h1>Netflix Clone OP</h1>
+      <Banner />
       <Row
         title="Netflix Originals"
         fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow
+        isLargeRow={true}
       />
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
